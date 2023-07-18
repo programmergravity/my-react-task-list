@@ -1,37 +1,22 @@
-import React from "react";
-import { useState } from "react";
+import { TaskRow } from "./TaskRow";
+import {  TableContainer, Table, Thead, Tr, Th, Tbody} from "@chakra-ui/react"
 
-
-export const TaskList = () => {
-
-  const [taskList, setTaskList] = useState([
-    {name: 'mi primer tarea', done: false},
-    {name: 'mi segunda tarea', done: false},
-    {name: 'mi tercer tarea', done: false},
-    {name: 'mi cuarta tarea', done: false},
-  ])
-  
+export const TaskList = ({ tasks, changeState }) => {
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Tasks</th>
-          </tr>
-        </thead>
-          <tbody>
-          {taskList.map(task => (
-            <tr key={task.name}>
-              <td>
-                {task.name}
-              </td>
-            </tr>
-            ))
-          }
-          </tbody>
-        </table>
-    </div>
+    <TableContainer>
+    <Table>
+      <Thead>
+        <Tr>
+          <Th>Tasks</Th>
+        </Tr>
+      </Thead>
+      <Tbody>
+        {tasks.map((task) => (
+          <TaskRow task={task} key={task.name} changeState={changeState}
+          />
+        ))}
+      </Tbody>
+    </Table>
+    </TableContainer>
   );
 };
-
-

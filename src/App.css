@@ -7,7 +7,7 @@ body {
 
 .container-main {
   border: 2px solid white;
-  height: 600px;
+  height: auto;
 }
 
 .container {
